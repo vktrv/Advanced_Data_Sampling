@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS musician (
 
 CREATE TABLE IF NOT EXISTS MusicianGenre (
 	musician_id INTEGER REFERENCES musician(musician_id),
-	musician_genre_id INTEGER REFERENCES music_genre(musician_genre_id),
-	CONSTRAINT pk_MG PRIMARY KEY (musician_id, musician_genre_id)
+	music_genre_id INTEGER REFERENCES music_genre(music_genre_id),
+	CONSTRAINT pk_MG PRIMARY KEY (musician_id, music_genre_id)
 );
 
 CREATE TABLE IF NOT EXISTS album (

@@ -15,6 +15,16 @@ WHERE year_of_issue BETWEEN 2018 AND 2020;
 SELECT name FROM musician 
 WHERE name NOT LIKE '% %';
 
--- название треков, которые содержат слово "мой" или "my".
+-- название треков, которые содержат слово "мой";
 SELECT name FROM track
-WHERE name ILIKE '%my%' OR name ILIKE '%мой%';
+WHERE name ILIKE '%мой%'
+OR name ILIKE '%мой'
+OR name ILIKE 'мой%'
+OR name ILIKE 'мой';
+
+-- название треков, которые содержат слово "my".
+SELECT name FROM track
+WHERE name ILIKE '%my%'
+OR name ILIKE '%my'
+OR name ILIKE 'my%'
+OR name ILIKE 'my';

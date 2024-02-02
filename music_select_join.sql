@@ -1,6 +1,6 @@
 -- количество исполнителей в каждом жанре;
-SELECT g.name, COUNT(gm.musician_id) FROM music_genre g 
-JOIN MusicianGenre gm ON g.music_genre_id = gm.musician_id 
+SELECT g.name, COUNT(mg.musician_id) FROM music_genre g 
+JOIN MusicianGenre mg ON g.music_genre_id = mg.music_genre_id 
 GROUP BY name;
 
 -- количество треков, вошедших в альбомы 2019-2020 годов;
