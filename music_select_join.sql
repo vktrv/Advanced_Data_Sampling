@@ -6,7 +6,7 @@ GROUP BY name;
 -- количество треков, вошедших в альбомы 2019-2020 годов;
 SELECT COUNT(t.track_id) FROM track t 
 JOIN album a ON t.album_id = a.album_id 
-WHERE year_of_issue BETWEEN 2019 AND 2020;
+WHERE year_of_issue BETWEEN '2019-01-01' AND '2020-12-31';
 
 -- средняя продолжительность треков по каждому альбому;
 SELECT a.name, AVG(t.duration) FROM track t 
@@ -19,7 +19,7 @@ EXCEPT
 SELECT m.name FROM MusicianAlbum ma
 JOIN album al ON ma.album_id = al.album_id 
 JOIN musician mu ON mu.musician_id = ma.musician_id
-WHERE al.year_of_issue = 2020
+WHERE al.year_of_issue = '2020-01-01'
 GROUP BY mu.name;
 
 SELECT DISTINCT m.name FROM musician m 
@@ -27,7 +27,7 @@ SELECT DISTINCT m.name FROM musician m
 				SELECT DISTINCT m.name FROM musician m 
 				LEFT JOIN MusicianAlbum ma ON m.musician_id = ma.musician_id 
 				LEFT JOIN album al ON al.album_id = ma.album_id 
-				WHERE al.year_of_issue = 2020
+				WHERE al.year_of_issue = '2020-12-31'
 				)
 		ORDER BY m.name;
 

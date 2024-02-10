@@ -9,7 +9,7 @@ WHERE duration >= 3.5 * 60;
 
 -- названия сборников, вышедших в период с 2018 по 2020 год включительно;
 SELECT name FROM collection
-WHERE year_of_issue BETWEEN 2018 AND 2020;
+WHERE year_of_issue BETWEEN '2018-01-01' AND '2020-12-31';
 
 -- исполнители, чье имя состоит из одного слова;
 SELECT name FROM musician 
@@ -17,14 +17,14 @@ WHERE name NOT LIKE '% %';
 
 -- название треков, которые содержат слово "мой";
 SELECT name FROM track
-WHERE name ILIKE '%мой%'
-OR name ILIKE '%мой'
-OR name ILIKE 'мой%'
+WHERE name ILIKE '% мой %'
+OR name ILIKE '% мой'
+OR name ILIKE 'мой %'
 OR name ILIKE 'мой';
 
 -- название треков, которые содержат слово "my".
 SELECT name FROM track
-WHERE name ILIKE '%my%'
-OR name ILIKE '%my'
-OR name ILIKE 'my%'
+WHERE name ILIKE '% my %'
+OR name ILIKE '% my'
+OR name ILIKE 'my %'
 OR name ILIKE 'my';
